@@ -19,10 +19,28 @@ class TaskView extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
+        title: const Text("Add task"),
         content: TextField(
           controller: textController,
+          onEditingComplete: () {
+            if (textController.text != "") {
+              taskCubit.addTask(textController.text);
+              Navigator.of(context).pop();
+            } else {
+              Navigator.of(context).pop();
+            }
+          },
         ),
+        actionsAlignment: MainAxisAlignment.spaceBetween,
         actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text(
+              "Cancel",
+            ),
+          ),
           TextButton(
             onPressed: () {
               taskCubit.addTask(textController.text);
