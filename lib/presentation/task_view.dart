@@ -26,7 +26,7 @@ class TaskView extends StatelessWidget {
           TextButton(
             onPressed: () {
               taskCubit.addTask(textController.text);
-              Navigator.of(context).pop;
+              Navigator.of(context).pop();
             },
             child: const Text("Add"),
           )
@@ -45,6 +45,7 @@ class TaskView extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _showAddTaskBox(context),
+        child: const Icon(Icons.add),
       ),
       body: BlocBuilder<TaskCubit, List<Task>>(
         builder: (context, tasks) {

@@ -18,6 +18,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # of the product and file versions while build-number is used as the build suffix.
 version: 1.0.0+1
 
+isar_version: &isar_version 3.1.8 # define the version to be used
+
 environment:
   sdk: ^3.5.2
 
@@ -35,8 +37,14 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-  isar: ^3.1.0+1
-  isar_flutter_libs: ^3.1.0+1
+  # isar: ^3.1.0+1
+  # isar_flutter_libs: ^3.1.0+1
+  isar: 
+    version: *isar_version
+    hosted: https://pub.isar-community.dev/
+  isar_flutter_libs: # contains Isar Core
+    version: *isar_version
+    hosted: https://pub.isar-community.dev/
   path_provider: ^2.1.4
   flutter_bloc: ^8.1.6
 
@@ -50,7 +58,10 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
-  isar_generator: ^3.1.0+1
+  # isar_generator: ^3.1.0+1
+  isar_generator: 
+    version: *isar_version
+    hosted: https://pub.isar-community.dev/
   build_runner: ^2.4.12
 
 # For information on the generic Dart part of this file, see the
